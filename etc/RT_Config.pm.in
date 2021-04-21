@@ -1823,6 +1823,18 @@ will be able to search all your users.
 
 Set($AllowUserAutocompleteForUnprivileged, 0);
 
+=item C<$AllowGroupAutocompleteForUnprivileged>
+
+Defines whether unprivileged users (users of SelfService) are allowed
+to autocomplete groups when searching. Setting this option to 1 means
+unprivileged users will be able to search all your user created
+group names. Users will also need the SeeGroup privilege to use
+this feature.
+
+=cut
+
+Set($AllowGroupAutocompleteForUnprivileged, 0);
+
 =item C<$DefaultSelfServiceSearchResultFormat>
 
 C<$DefaultSelfServiceSearchResultFormat> is the default format of
