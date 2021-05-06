@@ -153,6 +153,7 @@ $session{'CurrentSearchHash'} = {
 
 my ($title, $ticketcount) = (loc("Find tickets"), 0);
 if ( $session{'tickets'}->Query()) {
+    $session{'tickets'}->QueryHint("+CURSOR_SHARING_EXACT") if RT->Config->Get('DatabaseType') eq 'Oracle';
     $ticketcount = $session{tickets}->CountAll();
     $title = loc('Found [quant,_1,ticket,tickets]', $ticketcount);
 }

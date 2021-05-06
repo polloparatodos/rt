@@ -49,6 +49,7 @@
 if (!$Collection && $Class eq 'RT::Tickets') {
     $Collection = RT::Tickets->new( $session{'CurrentUser'} );
     $Collection->FromSQL($Query);
+    $Collection->QueryHint("+CURSOR_SHARING_EXACT") if RT->Config->Get('DatabaseType') eq 'Oracle';
 }
 
 # flip HasResults from undef to 0 to indicate there was a search, so
