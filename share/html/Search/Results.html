@@ -196,8 +196,11 @@ $session{$hash_name} = {
     ObjectType  => $ObjectType,
 };
 
-
-my $count = $session{$session_name}->Query() ? $session{$session_name}->CountAll() : 0;
+my $count = 0;
+if ( $session{$session_name}->Query() ) {
+    $count = $session{$session_name}->CountAll();
+    $session{$session_name}->QueryHint("+CURSOR_SHARING_EXACT") if RT->Config->Get('DatabaseType') eq 'Oracle';
+}
 
 my $title;
 if ( $Class eq 'RT::Transactions' ) {
