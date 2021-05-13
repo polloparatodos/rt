@@ -141,3 +141,7 @@ h1#transaction-extra-info {
     font-size: 1.4rem;
     padding-top: 0.4rem;
 }
+
+.w-15 {
+    width: 15% !important;
+}
