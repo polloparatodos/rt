@@ -68,7 +68,7 @@ sub Table {'Classes'}
 # this object can take custom fields
 
 use RT::CustomField;
-RT::CustomField->RegisterLookupType( CustomFieldLookupType() => 'Article Class' );    #loc
+RT::CustomField->RegisterLookupType( CustomFieldLookupType() => 'Classes' );    #loc
 
 =head2 Load IDENTIFIER
 
